@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     selectEspecialidade.addEventListener('focus', function() {
         if (!carregado) {
-            fetch('http://localhost:3001/projeto-maresa/especialidade') 
+            fetch('http://localhost:3001/projeto-maresa/especialidadecolaborador') 
                 .then(response => response.json())
                 .then(dados => {
                     // Limpa opções
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     // Assume array [{id:1, nome:"Cardiologia"}, ...]
                     dados.forEach(item => {
-                        const option = new Option(item.descricao);
+                        const option = new Option(item.especialidade + ' (' + item.colaborador + ')');
                         selectEspecialidade.appendChild(option);
                     });
                     
